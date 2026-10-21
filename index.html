@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050507">
+
+  <title>VentureVerse 2026 — Ideas into Action | EDC, JSS University Noida</title>
+  <meta name="description"
+    content="Flagship student entrepreneurship event by EDC, JSS University, Noida. Keynotes, candid founder stories, hands-on idea sprints, and pitch workshops on 12 November 2026.">
+  <meta name="keywords"
+    content="VentureVerse, EDC, JSS University, Noida, entrepreneurship, student startup, pitch competition, campus sprint">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VentureVerse 2026 — Ideas into Action">
+  <meta property="og:description"
+    content="A student-first day of keynotes, founder stories, and hands-on sprints — built to turn early ideas into real ventures.">
+  <meta property="og:site_name" content="VentureVerse 2026">
+  <meta property="og:image" content="/favicon.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VentureVerse 2026 — Ideas into Action">
+  <meta name="twitter:description"
+    content="A student-first day of keynotes, founder stories, and hands-on sprints at JSS University Noida.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Google Fonts: Kanit (Display) & Inter (Body) with swap display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Kanit:ital,wght@0,600;0,700;0,800;0,900;1,800&family=JetBrains+Mono:wght@500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Script to apply saved theme before paint to eliminate flash (§9.1) -->
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('ventureverse_theme');
+        if (savedTheme === 'light' || savedTheme === 'dark') {
+          document.documentElement.dataset.theme = savedTheme;
+        } else {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      } catch (e) {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    })();
+  </script>
+
+  <!-- JSON-LD Event Schema (§11) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "VentureVerse 2026 — Ideas into Action",
+    "startDate": "2026-11-12T10:00:00+05:30",
+    "endDate": "2026-11-12T15:00:00+05:30",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "University Auditorium (placeholder venue)",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "JSS University, Sector 62",
+        "addressLocality": "Noida",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "201301",
+        "addressCountry": "IN"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Entrepreneurship Development Cell (EDC), JSS University, Noida",
+      "url": "https://jssuniversity.example"
+    },
+    "description": "A student-focused flagship event about turning early ideas into ventures, learning from startup journeys, and exploring entrepreneurship on campus."
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Accessible Skip Link (§11) -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Global Film Grain Overlay (§6.1) -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Custom Desktop Pointer Cursor (§8.8) -->
+  <div class="custom-cursor" id="custom-cursor" aria-hidden="true">
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+  </div>
+
+  <!-- Fullscreen Preloader (§7.0) -->
+  <div class="preloader" id="preloader" role="progressbar" aria-label="Loading event experience" aria-valuemin="0"
+    aria-valuemax="100" aria-valuenow="0">
+    <div class="preloader__logo">
+      <span class="preloader__title">VENTUREVERSE</span>
+    </div>
+    <div class="preloader__bar-wrap">
+      <div class="preloader__bar" id="preloader-bar"></div>
+    </div>
+    <span class="preloader__counter" id="preloader-counter">0%</span>
+    <button type="button" class="preloader__skip-btn" id="preloader-skip">Skip Intro</button>
+  </div>
+
+  <div class="site-wrapper">
+    <!-- Header & Announcement Bar Wrapper (§7.1, §7.2) -->
+    <header class="header-wrapper" id="header-wrapper">
+      <!-- Announcement Bar (§7.1) -->
+      <aside class="announcement-bar" id="announcement-bar" aria-label="Event summary ticker">
+        <div class="announcement-bar__inner">
+          <span>12 NOVEMBER 2026 • 10:00 AM – 3:00 PM • UNIVERSITY AUDITORIUM, JSS UNIVERSITY NOIDA • FREE FOR
+            STUDENTS</span>
+        </div>
+      </aside>
+
+      <!-- Header Navigation Bar (§7.2) -->
+      <div class="site-header" id="site-header">
+        <div class="container">
+          <div class="site-header__inner">
+            <!-- Logo Lockup -->
+            <!-- Logo Lockup with Official Seals -->
+            <a href="#hero" class="site-logo" aria-label="VentureVerse 2026 Home">
+              <div class="site-logo__badges">
+                <img src="/logos/jss-university-seal.png" alt="JSS University Noida Seal" class="site-logo__seal" />
+                <span class="site-logo__divider" aria-hidden="true"></span>
+                <img src="/logos/edc-logo-dark.png" alt="EDC JSS University Noida" class="site-logo__edc edc-logo--dark" />
+                <img src="/logos/edc-logo-light.png" alt="EDC JSS University Noida" class="site-logo__edc edc-logo--light" />
+              </div>
+              <div class="site-logo__text">
+                <span class="site-logo__title">VENTUREVERSE</span>
+                <span class="site-logo__sub">EDC · JSS Noida</span>
+              </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="site-nav" aria-label="Main Navigation">
+              <ul class="site-nav__list">
+                <li><a href="#about" class="site-nav__link">About</a></li>
+                <li><a href="#schedule" class="site-nav__link">Schedule</a></li>
+                <li><a href="#speakers" class="site-nav__link">Speakers</a></li>
+                <li><a href="#register" class="site-nav__link">Register</a></li>
+                <li><a href="#faq" class="site-nav__link">FAQ</a></li>
+              </ul>
+              <span class="site-nav__indicator" aria-hidden="true"></span>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="header-actions">
+              <!-- Theme Toggle Button (§9.1) -->
+              <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark/light theme"
+                aria-pressed="false">
+                <!-- Sun Icon (for light mode) -->
+                <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="5" />
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </svg>
+                <!-- Moon Icon (for dark mode) -->
+                <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+              </button>
+
+              <!-- Pill CTA Button -->
+              <a href="#register" class="btn btn--primary btn--sm" data-magnetic>
+                <span>Register Now</span>
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+
+              <!-- Mobile Hamburger Button (§9.2) -->
+              <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="mobile-menu-overlay">
+                <span class="mobile-menu-btn__line"></span>
+                <span class="mobile-menu-btn__line"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Full-Screen Overlay Menu (§9.2) -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay" data-lenis-prevent aria-hidden="true">
+      <nav class="mobile-menu__nav" aria-label="Mobile Navigation">
+        <a href="#about" class="mobile-menu__link">
+          <span>About</span>
+          <span class="mobile-menu__link-num">01</span>
+        </a>
+        <a href="#schedule" class="mobile-menu__link">
+          <span>Schedule</span>
+          <span class="mobile-menu__link-num">02</span>
+        </a>
+        <a href="#speakers" class="mobile-menu__link">
+          <span>Speakers</span>
+          <span class="mobile-menu__link-num">03</span>
+        </a>
+        <a href="#register" class="mobile-menu__link">
+          <span>Register</span>
+          <span class="mobile-menu__link-num">04</span>
+        </a>
+        <a href="#faq" class="mobile-menu__link">
+          <span>FAQ</span>
+          <span class="mobile-menu__link-num">05</span>
+        </a>
+      </nav>
+
+      <div class="mobile-menu__footer">
+        <div class="mobile-menu__hosts">
+          <img src="/logos/jss-university-seal.png" alt="JSS University Noida Seal" class="mobile-host-seal" />
+          <span class="mobile-host-divider" aria-hidden="true"></span>
+          <img src="/logos/edc-logo-dark.png" alt="EDC JSS University Noida" class="mobile-host-edc edc-logo--dark" />
+          <img src="/logos/edc-logo-light.png" alt="EDC JSS University Noida" class="mobile-host-edc edc-logo--light" />
+        </div>
+        <a href="#register" class="btn btn--primary" style="width: 100%;">
+          <span>Register Free Seat</span>
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="mobile-menu__contact">
+          Entrepreneurship Development Cell<br>
+          JSS University, Sector 62, Noida
+        </p>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main id="main">
+      <!-- 1. Hero Section (§7.3) -->
+      <section id="hero" class="hero" aria-labelledby="hero-main-title">
+        <!-- Procedural Atmospheric Canvas & Glow Blobs (§6.2) -->
+        <div class="hero__backdrop" aria-hidden="true">
+          <canvas id="hero-particles" class="hero__canvas"></canvas>
+          <div class="hero__glow hero__glow--purple"></div>
+          <div class="hero__glow hero__glow--cyan"></div>
+          <div class="hero__glow hero__glow--magenta"></div>
+          <div class="hero__vignette"></div>
+        </div>
+
+        <div class="container hero__container">
+          <!-- Top Hero Title & Branding (Full Width) -->
+          <div class="hero__header-group">
+            <div class="hero__eyebrow-wrap">
+              <div class="hero__hosts-badge">
+                <img src="/logos/jss-university-seal.png" alt="JSS University Noida Seal" class="hero__host-seal" />
+                <span class="hero__host-sep">✕</span>
+                <img src="/logos/edc-logo-dark.png" alt="EDC JSS University Noida" class="hero__host-edc edc-logo--dark" />
+                <img src="/logos/edc-logo-light.png" alt="EDC JSS University Noida" class="hero__host-edc edc-logo--light" />
+              </div>
+              <span class="eyebrow">PRESENTS</span>
+            </div>
+
+            <h1 class="hero__title" id="hero-main-title">
+              <span class="hero__title-word">VENTUREVERSE</span>
+              <span class="hero__title-year">2026</span>
+            </h1>
+
+            <p class="hero__tagline">Ideas into Action.</p>
+          </div>
+
+          <!-- Bottom Grid: Left Details & Right Thumbnails -->
+          <div class="hero__bottom-layout">
+            <div class="hero__content">
+              <p class="hero__desc">
+                A student-first day of keynotes, founder stories and hands-on sprints built to turn your early ideas
+                into real ventures, right here on campus.
+              </p>
+
+              <!-- Event Facts Row (§7.3) -->
+              <div class="hero__facts" role="list" aria-label="Event key details">
+                <div class="fact-chip" role="listitem">
+                  <span class="fact-chip__icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" />
+                      <line x1="8" y1="2" x2="8" y2="6" />
+                      <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                  </span>
+                  <span>12 Nov 2026</span>
+                </div>
+
+                <div class="fact-chip" role="listitem">
+                  <span class="fact-chip__icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                  </span>
+                  <span>10:00 AM – 3:00 PM</span>
+                </div>
+
+                <div class="fact-chip" role="listitem">
+                  <span class="fact-chip__icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </span>
+                  <span>University Auditorium, JSS Noida</span>
+                </div>
+              </div>
+
+              <!-- CTAs Group -->
+              <div class="hero__ctas">
+                <a href="#register" class="btn btn--primary" data-magnetic>
+                  <span>Register Now</span>
+                  <span class="btn-arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="#schedule" class="btn btn--secondary" data-magnetic>
+                  <span>View Schedule</span>
+                </a>
+              </div>
+
+              <!-- Mini Live Countdown Pill (§9.3) -->
+              <div class="hero-countdown" id="hero-countdown" aria-label="Event countdown">
+                <span class="hero-countdown__label">
+                  <span class="hero-countdown__pulse"></span>
+                  <span>Starts In</span>
+                </span>
+                <div class="hero-countdown__grid" aria-live="off">
+                  <div class="countdown-unit">
+                    <span class="countdown-num" id="count-days">--</span>
+                    <span class="countdown-label">d</span>
+                  </div>
+                  <span class="countdown-sep">:</span>
+                  <div class="countdown-unit">
+                    <span class="countdown-num" id="count-hours">--</span>
+                    <span class="countdown-label">h</span>
+                  </div>
+                  <span class="countdown-sep">:</span>
+                  <div class="countdown-unit">
+                    <span class="countdown-num" id="count-mins">--</span>
+                    <span class="countdown-label">m</span>
+                  </div>
+                  <span class="countdown-sep">:</span>
+                  <div class="countdown-unit">
+                    <span class="countdown-num" id="count-secs">--</span>
+                    <span class="countdown-label">s</span>
+                  </div>
+                </div>
+                <time class="sr-only" datetime="2026-11-12T10:00:00+05:30">Event starts November 12, 2026 at 10:00 AM
+                  IST</time>
+              </div>
+            </div>
+
+            <!-- Bottom Right Colorful Preview Tiles (§3 & §6.2) -->
+            <div class="hero__thumbnails" aria-hidden="true">
+              <a href="#schedule" class="hero-tile hero-tile--one">
+                <div class="hero-tile__overlay"></div>
+                <div class="hero-tile__content">
+                  <div class="hero-tile__info">
+                    <span class="hero-tile__tag">Keynote & Fireside</span>
+                    <span class="hero-tile__title">Pitch Stage Glow</span>
+                  </div>
+                  <div class="hero-tile__icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+
+              <a href="#schedule" class="hero-tile hero-tile--two">
+                <div class="hero-tile__overlay"></div>
+                <div class="hero-tile__content">
+                  <div class="hero-tile__info">
+                    <span class="hero-tile__tag">Hands-on Round</span>
+                    <span class="hero-tile__title">Idea Sprint Grid</span>
+                  </div>
+                  <div class="hero-tile__icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 2. About & Highlights Section (§7.4) -->
+      <section id="about" class="section about-section" aria-labelledby="about-main-heading">
+        <div class="container">
+          <!-- Huge Outline-Only Stroke Title Overlapping Panel Top Edge (§3 & §7.4) -->
+          <div class="about-overlap-title outline-text" aria-hidden="true">
+            ABOUT THE EVENT
+          </div>
+
+          <!-- Dark Elevated Panel -->
+          <div class="about-panel">
+            <div class="about-grid">
+              <!-- Left Visual Card with Neon Geometric Artwork -->
+              <div class="about-visual" aria-hidden="true">
+                <div class="about-visual__bg"></div>
+                <svg class="about-visual__art" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Concentric Neon Rings and Rocket Motif -->
+                  <circle cx="150" cy="150" r="120" stroke="rgba(255,255,255,0.08)" stroke-width="2" />
+                  <circle cx="150" cy="150" r="95" stroke="url(#aboutArtGrad1)" stroke-width="2.5"
+                    stroke-dasharray="8 6" />
+                  <circle cx="150" cy="150" r="70" stroke="rgba(25, 211, 230, 0.4)" stroke-width="1.5" />
+                  <circle cx="150" cy="150" r="45" stroke="url(#aboutArtGrad2)" stroke-width="3" />
+
+                  <path d="M150 70 L175 145 L150 135 L125 145 Z" fill="url(#aboutArtGrad1)" />
+                  <circle cx="150" cy="110" r="6" fill="#19d3e6" />
+
+                  <line x1="150" y1="135" x2="150" y2="185" stroke="#ff3d9a" stroke-width="3" stroke-linecap="round" />
+                  <path d="M140 185 L150 215 L160 185" fill="#ff3d9a" />
+
+                  <defs>
+                    <linearGradient id="aboutArtGrad1" x1="0" y1="0" x2="300" y2="300" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#8a2be2" />
+                      <stop offset="1" stop-color="#19d3e6" />
+                    </linearGradient>
+                    <linearGradient id="aboutArtGrad2" x1="50" y1="50" x2="250" y2="250" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#ff3d9a" />
+                      <stop offset="1" stop-color="#8a2be2" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="about-visual__badge">
+                  <div class="about-badge-hosts">
+                    <img src="/logos/jss-university-seal.png" alt="JSS University" class="about-badge-seal" />
+                    <img src="/logos/edc-logo-dark.png" alt="EDC" class="about-badge-edc edc-logo--dark" />
+                    <img src="/logos/edc-logo-light.png" alt="EDC" class="about-badge-edc edc-logo--light" />
+                  </div>
+                  <span>EDC × JSS UNIVERSITY</span>
+                </div>
+              </div>
+
+              <!-- Right Copy Column with Vertical Cyan Micro-Label -->
+              <div class="about-copy-wrap">
+                <span class="about-vertical-label" aria-hidden="true">ABOUT US</span>
+
+                <div class="about-copy">
+                  <span class="eyebrow">ABOUT THE EVENT</span>
+                  <h2 class="about-title" id="about-main-heading">
+                    WHERE CAMPUS IDEAS BECOME <span class="outline-text">VENTURES</span>
+                  </h2>
+
+                  <p class="about-text">
+                    VentureVerse 2026 is the flagship entrepreneurship event of the Entrepreneurship Development Cell at
+                    JSS University, Noida. In one energetic day, students meet working founders, test their ideas in a
+                    live sprint, learn how to pitch with confidence, and connect with a community that backs builders.
+                  </p>
+
+                  <p class="about-text">
+                    Whether you're carrying a half-formed idea, a prototype, or just curiosity — there's a seat for you.
+                  </p>
+
+                  <!-- Animated Stats Strip (§7.4 & §8.9) -->
+                  <div class="stats-strip" role="list" aria-label="Event statistics">
+                    <div class="stat-item" role="listitem">
+                      <div class="stat-item__value-wrap">
+                        <span class="stat-item__num">0</span>
+                        <span class="stat-item__suffix">hrs</span>
+                      </div>
+                      <span class="stat-item__label">of content</span>
+                    </div>
+
+                    <div class="stat-item" role="listitem">
+                      <div class="stat-item__value-wrap">
+                        <span class="stat-item__num">0</span>
+                      </div>
+                      <span class="stat-item__label">speakers</span>
+                    </div>
+
+                    <div class="stat-item" role="listitem">
+                      <div class="stat-item__value-wrap">
+                        <span class="stat-item__num">0</span>
+                      </div>
+                      <span class="stat-item__label">sessions</span>
+                    </div>
+
+                    <div class="stat-item" role="listitem">
+                      <div class="stat-item__value-wrap">
+                        <span class="stat-item__num">0</span>
+                        <span class="stat-item__suffix">+</span>
+                      </div>
+                      <span class="stat-item__label">students expected</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Highlights 4-Card Grid Container (§7.4) -->
+          <div class="highlights-container">
+            <div class="section-header">
+              <span class="eyebrow">KEY PILLARS</span>
+              <h3 class="section-header__title">DESIGNED FOR CAMPUS BUILDERS</h3>
+              <p class="section-header__desc">Four focused experiences tailored to inspire, educate, and kickstart your
+                startup journey.</p>
+            </div>
+            <div class="highlights-grid" id="highlights-container"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Horizontal Velocity-Reactive Text Marquee Band (§8.7) -->
+      <div class="marquee-band" aria-hidden="true">
+        <div class="marquee-band__track">
+          <div class="marquee-band__content">
+            <span>IDEAS</span>
+            <span class="marquee-band__dot">•</span>
+            <span class="alt">INTO</span>
+            <span class="marquee-band__dot">•</span>
+            <span>ACTION</span>
+            <span class="marquee-band__dot">•</span>
+            <span class="alt">VENTUREVERSE</span>
+            <span class="marquee-band__dot">•</span>
+            <span>2026</span>
+            <span class="marquee-band__dot">•</span>
+            <span>BUILD THE FUTURE</span>
+            <span class="marquee-band__dot">•</span>
+          </div>
+          <div class="marquee-band__content">
+            <span>IDEAS</span>
+            <span class="marquee-band__dot">•</span>
+            <span class="alt">INTO</span>
+            <span class="marquee-band__dot">•</span>
+            <span>ACTION</span>
+            <span class="marquee-band__dot">•</span>
+            <span class="alt">VENTUREVERSE</span>
+            <span class="marquee-band__dot">•</span>
+            <span>2026</span>
+            <span class="marquee-band__dot">•</span>
+            <span>BUILD THE FUTURE</span>
+            <span class="marquee-band__dot">•</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Schedule Timeline Section (§7.5) -->
+      <section id="schedule" class="section schedule-section" aria-labelledby="schedule-heading">
+        <div class="container">
+          <div class="section-header section-header--center">
+            <span class="eyebrow">THE AGENDA</span>
+            <h2 class="section-header__title" id="schedule-heading">
+              FIVE HOURS. ONE DAY. <span class="grad-text">SIX SESSIONS.</span>
+            </h2>
+            <p class="section-header__desc">
+              From doors opening to networking, every session is designed to give you practical takeaways and real
+              startup confidence.
+            </p>
+          </div>
+
+          <div class="timeline-wrap" id="schedule-container"></div>
+        </div>
+      </section>
+
+      <!-- Section Divider Line -->
+      <hr class="section-divider" aria-hidden="true">
+
+      <!-- 4. Speakers & Mentors Section (§7.6) -->
+      <section id="speakers" class="section speakers-section" aria-labelledby="speakers-heading">
+        <div class="container">
+          <div class="section-header">
+            <span class="eyebrow">VOICES OF EXPERIENCE</span>
+            <h2 class="section-header__title" id="speakers-heading">
+              MEET THE <span class="outline-text">SPEAKERS</span> & MENTORS
+            </h2>
+            <p class="section-header__desc">
+              Founders, early-stage investors, and operators sharing unfiltered stories from the frontlines of building
+              companies.
+            </p>
+          </div>
+
+          <div id="speakers-container"></div>
+        </div>
+      </section>
+
+      <!-- 5. Registration Form Section (§7.7 & §9.5) -->
+      <section id="register" class="section register-section" aria-labelledby="register-heading">
+        <div class="register-backdrop-glow" aria-hidden="true"></div>
+
+        <div class="container">
+          <div class="register-grid">
+            <!-- Left Info Column -->
+            <div class="register-info">
+              <span class="eyebrow">RESERVE YOUR PASS</span>
+              <h2 class="register-info__title" id="register-heading">
+                TURN YOUR IDEA INTO <span class="grad-text">ACTION</span>
+              </h2>
+              <p class="register-info__desc">
+                Admission is completely free for all enrolled university students. Spaces in the auditorium are capped
+                to ensure every attendee can participate in the Idea Sprint.
+              </p>
+
+              <!-- Perks Checklist -->
+              <div class="register-perks">
+                <div class="perk-item">
+                  <span class="perk-item__icon" aria-hidden="true">✓</span>
+                  <span>Full-day access to all 6 sessions & idea sprint</span>
+                </div>
+                <div class="perk-item">
+                  <span class="perk-item__icon" aria-hidden="true">✓</span>
+                  <span>Official Certificate of Participation by EDC JSS</span>
+                </div>
+                <div class="perk-item">
+                  <span class="perk-item__icon" aria-hidden="true">✓</span>
+                  <span>Direct mentor networking & feedback round</span>
+                </div>
+                <div class="perk-item">
+                  <span class="perk-item__icon" aria-hidden="true">✓</span>
+                  <span>Complimentary student lunch & event kit</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right High-Contrast Booking Card (§3 & §7.7) -->
+            <div class="booking-card" id="booking-card">
+              <div class="booking-card__header">
+                <div>
+                  <h3 class="booking-card__headline">Reserve Your Seat</h3>
+                  <span class="booking-card__sub">Free Student Pass · Limited Capacity</span>
+                </div>
+                <div class="booking-date-block">
+                  <span class="booking-date-block__day">12 NOV</span>
+                  <span class="booking-date-block__meta">THU · 10:00 AM</span>
+                </div>
+              </div>
+
+              <div id="booking-card-body">
+                <form id="registration-form" class="reg-form" novalidate>
+                  <div class="form-group">
+                    <label for="reg-name" class="form-label">Full Name *</label>
+                    <input type="text" id="reg-name" name="name" class="form-input" placeholder="e.g. Priyanshu Sharma"
+                      required autocomplete="name">
+                    <span class="form-error" id="name-error">Please enter your name (min 2 chars).</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="reg-email" class="form-label">College Email *</label>
+                    <input type="email" id="reg-email" name="email" class="form-input"
+                      placeholder="e.g. student@jss.edu.in" required autocomplete="email">
+                    <span class="form-error" id="email-error">Please enter a valid email address.</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="reg-year" class="form-label">College / Year *</label>
+                    <select id="reg-year" name="year" class="form-select" required>
+                      <option value="" disabled selected>Select your current year</option>
+                      <option value="1st Year">1st Year Undergraduate</option>
+                      <option value="2nd Year">2nd Year Undergraduate</option>
+                      <option value="3rd Year">3rd Year Undergraduate</option>
+                      <option value="4th Year">4th Year Undergraduate</option>
+                      <option value="Postgraduate/Other">Postgraduate / Other</option>
+                    </select>
+                    <span class="form-error" id="year-error">Please select your year of study.</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="reg-idea" class="form-label">
+                      <span>What are you building? (Optional)</span>
+                      <span class="form-counter" id="idea-counter">0/140</span>
+                    </label>
+                    <textarea id="reg-idea" name="idea" class="form-textarea" maxlength="140"
+                      placeholder="Tell us your early concept, domain interest, or what excites you..."></textarea>
+                  </div>
+
+                  <label class="form-checkbox-label">
+                    <input type="checkbox" id="reg-updates" name="updates" class="form-checkbox" checked>
+                    <span>I agree to receive event updates and schedule alerts from EDC JSS Noida.</span>
+                  </label>
+
+                  <button type="submit" id="reg-submit-btn" class="btn btn--primary" style="width: 100%;">
+                    <span class="btn-text">Confirm My Seat</span>
+                    <span class="btn-arrow" aria-hidden="true">→</span>
+                    <span class="btn-spinner" aria-hidden="true"></span>
+                  </button>
+
+                  <p class="booking-disclaimer">
+                    Demo form — no data is stored or sent to a server.
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. FAQ Section (§7.8 & §9.4) -->
+      <section id="faq" class="section faq-section" aria-labelledby="faq-heading">
+        <div class="container">
+          <div class="faq-grid">
+            <div class="faq-info">
+              <span class="eyebrow">GOT QUESTIONS</span>
+              <h2 class="section-header__title" id="faq-heading">
+                GOOD TO <span class="grad-text">KNOW</span>
+              </h2>
+              <p class="faq-info__desc">
+                Everything you need to know about attendance, requirements, and what to expect on event day. Still
+                curious? Reach out to our student volunteers anytime.
+              </p>
+            </div>
+
+            <div id="faq-container"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Follow the Buzz Social Section (§7.9) -->
+      <section id="social" class="section social-section" aria-labelledby="social-heading">
+        <div class="container">
+          <div class="section-header section-header--center">
+            <span class="eyebrow">SOCIAL</span>
+            <h2 class="section-header__title" id="social-heading">
+              FOLLOW THE <span class="outline-text">BUZZ</span>
+            </h2>
+            <p class="section-header__desc">
+              Follow EDC on social media for speaker reveals, behind-the-scenes content and campus startup updates.
+            </p>
+          </div>
+
+          <div class="social-tiles-grid">
+            <!-- Instagram Tile -->
+            <a href="https://instagram.com/example" class="social-tile social-tile--instagram" target="_blank"
+              rel="noopener noreferrer" aria-label="Follow EDC on Instagram">
+              <div class="social-tile__mesh"></div>
+              <div class="social-tile__overlay"></div>
+              <div class="social-tile__badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+                <span class="social-tile__badge-text">Instagram</span>
+              </div>
+              <div class="social-tile__content">
+                <span class="social-tile__handle">@edc_jssnoida</span>
+                <h3 class="social-tile__title">Behind the Scenes & Highlights</h3>
+              </div>
+            </a>
+
+            <!-- LinkedIn Tile -->
+            <a href="https://linkedin.com/example" class="social-tile social-tile--linkedin" target="_blank"
+              rel="noopener noreferrer" aria-label="Connect with EDC on LinkedIn">
+              <div class="social-tile__mesh"></div>
+              <div class="social-tile__overlay"></div>
+              <div class="social-tile__badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+                <span class="social-tile__badge-text">LinkedIn</span>
+              </div>
+              <div class="social-tile__content">
+                <span class="social-tile__handle">EDC JSS University</span>
+                <h3 class="social-tile__title">Startup Updates & Mentorship</h3>
+              </div>
+            </a>
+
+            <!-- X / Twitter Tile -->
+            <a href="https://x.com/example" class="social-tile social-tile--x" target="_blank" rel="noopener noreferrer"
+              aria-label="Follow EDC on X">
+              <div class="social-tile__mesh"></div>
+              <div class="social-tile__overlay"></div>
+              <div class="social-tile__badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                </svg>
+                <span class="social-tile__badge-text">X Platform</span>
+              </div>
+              <div class="social-tile__content">
+                <span class="social-tile__handle">@edc_jss</span>
+                <h3 class="social-tile__title">Live Announcments & Q&amp;A</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 8. Footer Section (§7.10) -->
+    <footer class="site-footer" id="site-footer">
+      <div class="container">
+        <!-- Top 3-Column Footer Grid -->
+        <div class="footer-top-grid">
+          <!-- Left Branding -->
+          <div class="footer-brand">
+            <div class="footer-brand__badges">
+              <img src="/logos/jss-university-seal.png" alt="JSS University Noida Seal" class="footer-brand__seal" />
+              <span class="footer-brand__divider" aria-hidden="true"></span>
+              <img src="/logos/edc-logo-dark.png" alt="EDC JSS University Noida" class="footer-brand__edc edc-logo--dark" />
+              <img src="/logos/edc-logo-light.png" alt="EDC JSS University Noida" class="footer-brand__edc edc-logo--light" />
+            </div>
+            <div class="footer-brand__text">
+              <span class="footer-brand__title">Entrepreneurship Development Cell</span>
+              <span class="footer-brand__sub">JSS University, Noida</span>
+            </div>
+          </div>
+
+          <!-- Centre Cyan Navigation Links -->
+          <nav class="footer-nav" aria-label="Footer Quick Links">
+            <a href="#about" class="footer-nav__link">About</a>
+            <a href="#schedule" class="footer-nav__link">Schedule</a>
+            <a href="#speakers" class="footer-nav__link">Speakers</a>
+            <a href="#register" class="footer-nav__link">Register</a>
+            <a href="#faq" class="footer-nav__link">FAQ</a>
+          </nav>
+
+          <!-- Right Social Links -->
+          <div class="footer-socials" role="list" aria-label="Social media channels">
+            <a href="https://instagram.com/example" class="footer-social-btn" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a href="https://linkedin.com/example" class="footer-social-btn" target="_blank" rel="noopener noreferrer"
+              aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a href="https://x.com/example" class="footer-social-btn" target="_blank" rel="noopener noreferrer"
+              aria-label="X">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+              </svg>
+            </a>
+            <a href="https://youtube.com/example" class="footer-social-btn" target="_blank" rel="noopener noreferrer"
+              aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Info Row -->
+        <div class="footer-contact-row">
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon" aria-hidden="true">✉</span>
+            <a href="mailto:edc@jssuniversity.example">edc@jssuniversity.example</a>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon" aria-hidden="true">📞</span>
+            <span>+91 00000 00000</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon" aria-hidden="true">📍</span>
+            <span>JSS University, Sector 62, Noida (placeholder)</span>
+          </div>
+        </div>
+
+        <!-- Bottom Copyright & Back to Top -->
+        <div class="footer-bottom">
+          <p>© 2026 EDC, JSS University Noida — Fictional event for a design/development exercise.</p>
+          <button type="button" id="btn-back-to-top" class="footer-back-to-top" aria-label="Scroll back to top">
+            <span>Back to top</span>
+            <span aria-hidden="true">↑</span>
+          </button>
+        </div>
+
+        <!-- Giant Faded Parallax Wordmark (§7.10) -->
+        <div class="footer-giant-wordmark" aria-hidden="true">
+          VENTUREVERSE
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Main ES Module Script -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

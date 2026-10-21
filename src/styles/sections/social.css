@@ -1,0 +1,134 @@
+/* "Follow the Buzz" social media section mirroring the design reference. */
+/* Implements 3 abstract gradient tiles with expanding cyan icon badges on hover. */
+
+.social-section {
+  position: relative;
+}
+
+.social-tiles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .social-tiles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Abstract Social Card Tile */
+.social-tile {
+  position: relative;
+  border-radius: var(--radius-m);
+  height: 280px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.75rem;
+  text-decoration: none;
+  color: #ffffff;
+  transition: transform 0.35s var(--ease-out), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.social-tile:hover {
+  transform: translateY(-6px);
+  border-color: rgba(25, 211, 230, 0.45);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+.social-tile--instagram {
+  background: linear-gradient(135deg, #4f5bd5 0%, #962fbf 30%, #d62976 60%, #fa7e1e 100%);
+}
+
+.social-tile--linkedin {
+  background: linear-gradient(135deg, #0077b5 0%, #00a0dc 50%, #8a2be2 100%);
+}
+
+.social-tile--x {
+  background: linear-gradient(135deg, #111118 0%, #1f1f2e 50%, #19d3e6 100%);
+}
+
+.social-tile__mesh {
+  position: absolute;
+  inset: 0;
+  opacity: 0.25;
+  background-image: radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.social-tile__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5, 5, 7, 0.9) 0%, rgba(5, 5, 7, 0.2) 60%, transparent 100%);
+}
+
+/* Floating Cyan Icon Badge (§3 & §7.9) */
+.social-tile__badge {
+  position: relative;
+  z-index: 2;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(5, 5, 7, 0.8);
+  border: 1px solid var(--cyan);
+  border-radius: var(--radius-pill);
+  color: var(--cyan);
+  backdrop-filter: blur(8px);
+  transition: padding 0.3s var(--ease-out), background-color 0.3s ease;
+}
+
+.social-tile__badge-text {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.35s var(--ease-out), opacity 0.3s ease;
+}
+
+.social-tile:hover .social-tile__badge-text {
+  max-width: 120px;
+  opacity: 1;
+}
+
+.social-tile:hover .social-tile__badge {
+  background: var(--cyan);
+  color: #050507;
+}
+
+.social-tile__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.social-tile__handle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--cyan);
+}
+
+.social-tile__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+[data-theme="light"] .social-tile__badge {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}

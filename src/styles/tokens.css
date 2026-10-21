@@ -1,0 +1,102 @@
+/* Design tokens and theme custom properties for VentureVerse 2026. */
+/* Sets color palettes, typography scales, responsive spacing, and theme variants. */
+
+:root {
+  /* Color — Dark default theme */
+  --bg: #050507;
+  --bg-elev-1: #0b0b10;
+  --bg-elev-2: #12121a;
+  --bg-elev-3: #1a1a24;
+  --surface-light: #f4f5fb;           /* high-contrast registration card on dark */
+  --surface-light-text: #0d0d14;      /* text inside light registration card */
+  --surface-light-sub: #555566;
+  --surface-light-line: rgba(0, 0, 0, 0.12);
+
+  --text: #f2f2f7;
+  --text-muted: #9a9aab;
+  --text-dim: #5f5f70;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.18);
+
+  /* Signature Accents */
+  --purple: #8a2be2;                  /* Primary brand accent / CTA button */
+  --purple-glow: #b25cff;
+  --purple-dark: #6a1bb2;
+  --cyan: #19d3e6;                    /* Secondary accent / eyebrows / badges */
+  --cyan-glow: #70f3ff;
+  --magenta: #ff3d9a;                 /* Sparing highlight in gradients */
+  --emerald: #10b981;
+
+  --grad-accent: linear-gradient(90deg, #8a2be2, #19d3e6);
+  --grad-accent-v: linear-gradient(135deg, #8a2be2 0%, #19d3e6 100%);
+  --grad-glow: radial-gradient(circle, rgba(138, 43, 226, 0.25) 0%, rgba(25, 211, 230, 0.12) 50%, transparent 70%);
+
+  /* Typography */
+  --font-display: 'Kanit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Consolas, monospace;
+
+  /* Fluid Type Scale */
+  --fs-hero: clamp(2rem, 6.8vw, 6.2rem);
+  --fs-hero-sub: clamp(1.2rem, 3.2vw, 2.5rem);
+  --fs-h2: clamp(2.2rem, 5.5vw, 4.4rem);
+  --fs-h3: clamp(1.25rem, 2.2vw, 1.75rem);
+  --fs-h4: 1.25rem;
+  --fs-body: clamp(1rem, 1.1vw, 1.125rem);
+  --fs-small: 0.875rem;
+  --fs-eyebrow: 0.75rem;              /* letter-spacing .3em uppercase */
+
+  /* Layout & Spacing */
+  --container: 1240px;
+  --container-narrow: 860px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --section-y: clamp(5rem, 11vw, 9.5rem);
+  --header-height: 105px;
+
+  /* Radii */
+  --radius-s: 8px;
+  --radius-m: 16px;
+  --radius-l: 28px;
+  --radius-xl: 36px;
+  --radius-pill: 999px;
+
+  /* Shadows & Glows */
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --glow-purple: 0 0 35px rgba(138, 43, 226, 0.45);
+  --glow-cyan: 0 0 30px rgba(25, 211, 230, 0.4);
+
+  /* Transitions & Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.35s;
+  --duration-slow: 0.6s;
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] {
+  --bg: #f6f6fa;
+  --bg-elev-1: #ffffff;
+  --bg-elev-2: #ececf4;
+  --bg-elev-3: #e0e0ec;
+
+  --surface-light: #0d0d14;          /* Inverted registration card: dark card on light theme */
+  --surface-light-text: #f2f2f7;
+  --surface-light-sub: #9a9aab;
+  --surface-light-line: rgba(255, 255, 255, 0.12);
+
+  --text: #0d0d14;
+  --text-muted: #5a5a6e;
+  --text-dim: #8a8a9c;
+  --line: rgba(0, 0, 0, 0.08);
+  --line-strong: rgba(0, 0, 0, 0.16);
+
+  --cyan: #0a8fa0;                   /* Darkened for WCAG AA contrast (≥4.5:1) in light mode */
+  --cyan-glow: #19d3e6;
+  --purple: #7928ca;
+  --purple-glow: #9d4edd;
+
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+  --glow-purple: 0 0 25px rgba(121, 40, 202, 0.2);
+  --glow-cyan: 0 0 25px rgba(10, 143, 160, 0.2);
+}

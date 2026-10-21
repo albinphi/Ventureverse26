@@ -1,0 +1,400 @@
+/* Announcement bar, sticky site header, navigation links, and full-screen mobile menu. */
+/* Implements scroll-direction reveal, active link indicators, and theme toggle button. */
+
+/* Fixed Header Wrapper (contains both Announcement Bar and Nav Bar without overlap) */
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  will-change: transform;
+}
+
+.header-wrapper.is-hidden {
+  transform: translateY(-100%) !important;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+/* Announcement Bar */
+.announcement-bar {
+  width: 100%;
+  background: var(--bg-elev-2);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0.45rem 1rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 1001;
+}
+
+.announcement-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .announcement-bar__inner {
+    display: inline-flex;
+    animation: marquee 16s linear infinite;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+}
+
+/* Header Container */
+.site-header {
+  width: 100%;
+  position: relative;
+  transition: background-color var(--duration-normal) var(--ease-out),
+              backdrop-filter var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out),
+              padding var(--duration-normal) var(--ease-out);
+  padding: 0.85rem 0;
+}
+
+.site-header.is-scrolled {
+  background-color: rgba(5, 5, 7, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  padding: 0.65rem 0;
+}
+
+[data-theme="light"] .site-header.is-scrolled {
+  background-color: rgba(246, 246, 250, 0.88);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Brand / Logo */
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: var(--text);
+  z-index: 1010;
+}
+
+.site-logo__badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.site-logo__seal {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s var(--ease-elastic);
+}
+
+.site-logo:hover .site-logo__seal {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.site-logo__divider {
+  width: 1px;
+  height: 22px;
+  background-color: var(--line-strong);
+  flex-shrink: 0;
+}
+
+.site-logo__edc {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform 0.3s var(--ease-elastic);
+}
+
+.site-logo:hover .site-logo__edc {
+  transform: scale(1.05);
+}
+
+.site-logo__emblem {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  transition: transform 0.3s var(--ease-elastic);
+}
+
+.site-logo:hover .site-logo__emblem {
+  transform: scale(1.08) rotate(5deg);
+}
+
+.site-logo__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-logo__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.site-logo__sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--cyan);
+  text-transform: uppercase;
+}
+
+/* Desktop Navigation */
+.site-nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    padding: 0.35rem 0.6rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .site-nav__list {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .site-nav__link {
+    position: relative;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    border-radius: var(--radius-pill);
+    transition: color 0.2s ease;
+  }
+
+  .site-nav__link:hover {
+    color: var(--text);
+  }
+
+  .site-nav__link.is-active {
+    color: var(--cyan);
+    font-weight: 600;
+  }
+
+  .site-nav__indicator {
+    position: absolute;
+    bottom: 4px;
+    height: 2px;
+    background: var(--cyan);
+    border-radius: 2px;
+    pointer-events: none;
+    transition: left 0.3s var(--ease-out), width 0.3s var(--ease-out), opacity 0.2s ease;
+  }
+}
+
+/* Header Action Group */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  transform: rotate(15deg);
+}
+
+.theme-toggle-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.theme-icon-sun {
+  display: none;
+}
+.theme-icon-moon {
+  display: block;
+}
+
+[data-theme="light"] .theme-icon-sun {
+  display: block;
+}
+[data-theme="light"] .theme-icon-moon {
+  display: none;
+}
+
+/* Mobile Hamburger Toggle */
+.mobile-menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  z-index: 1010;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+
+.mobile-menu-btn__line {
+  width: 22px;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease-out), opacity 0.2s ease;
+}
+
+.mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn__line:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn__line:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* Full-Screen Mobile Menu Overlay (§9.2) */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-color: var(--bg);
+  z-index: 1005;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6rem var(--gutter) 2.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+  overflow-y: auto;
+}
+
+.mobile-menu-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mobile-menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.mobile-menu__link {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 8vw, 3.2rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.75rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-menu__link:hover,
+.mobile-menu__link:focus-visible {
+  color: var(--cyan);
+  transform: translateX(8px);
+}
+
+.mobile-menu__link-num {
+  font-size: 1rem;
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+}
+
+.mobile-menu__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.mobile-menu__contact {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.mobile-menu__hosts {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.mobile-host-seal {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mobile-host-divider {
+  width: 1px;
+  height: 20px;
+  background-color: var(--line-strong);
+}
+
+.mobile-host-edc {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}

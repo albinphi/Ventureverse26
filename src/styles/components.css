@@ -1,0 +1,332 @@
+/* Reusable UI components including buttons, pills, 3D tilt cards, and cursor effects. */
+/* Implements magnetic buttons, pill CTAs, fact chips, and the marquee band. */
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.85rem;
+  min-height: 48px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  transition: transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out),
+              background-color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn .btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn--primary {
+  background-color: var(--purple);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(138, 43, 226, 0.35);
+}
+
+.btn--primary:hover {
+  background-color: var(--purple-glow);
+  box-shadow: 0 0 30px rgba(178, 92, 255, 0.65);
+  transform: translateY(-2px);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+  backdrop-filter: blur(8px);
+}
+
+.btn--secondary:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+.btn--sm {
+  padding: 0.55rem 1.25rem;
+  min-height: 40px;
+  font-size: 0.85rem;
+}
+
+/* Event Fact Chips */
+.fact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  color: var(--text);
+  backdrop-filter: blur(10px);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.fact-chip:hover {
+  border-color: var(--cyan);
+  background: rgba(25, 211, 230, 0.06);
+}
+
+.fact-chip__icon {
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+}
+
+/* 3D Tilt Card Base */
+.tilt-card {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  border-radius: var(--radius-m);
+  background: var(--bg-elev-1);
+  border: 1px solid var(--line);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tilt-card:hover {
+  border-color: rgba(25, 211, 230, 0.4);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6);
+}
+
+.tilt-card__glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tilt-card:hover .tilt-card__glare {
+  opacity: 1;
+}
+
+/* Horizontal Velocity Text Marquee Band (§8.7) */
+.marquee-band {
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  padding: 2.2rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(11, 11, 16, 0.5);
+  backdrop-filter: blur(6px);
+  position: relative;
+  white-space: nowrap;
+}
+
+.marquee-band__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-band__content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-right: 2rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.marquee-band__content span.alt {
+  -webkit-text-stroke: 1.5px var(--text);
+  color: transparent;
+}
+
+.marquee-band__dot {
+  color: var(--cyan);
+  font-size: 1.5rem;
+}
+
+/* Custom Interactive Desktop Cursor (§8.8) */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10001;
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor {
+    display: block;
+  }
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--cyan);
+  border-radius: 50%;
+  position: fixed;
+  top: -3px;
+  left: -3px;
+  pointer-events: none;
+  z-index: 10002;
+  transition: transform 0.1s ease-out;
+}
+
+.cursor-ring {
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid rgba(25, 211, 230, 0.6);
+  border-radius: 50%;
+  position: fixed;
+  top: -19px;
+  left: -19px;
+  pointer-events: none;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  transition: width 0.25s var(--ease-out),
+              height 0.25s var(--ease-out),
+              background-color 0.25s var(--ease-out),
+              border-color 0.25s var(--ease-out),
+              border-radius 0.25s var(--ease-out);
+}
+
+.custom-cursor.is-hovering .cursor-ring {
+  width: 54px;
+  height: 54px;
+  top: -27px;
+  left: -27px;
+  background-color: rgba(138, 43, 226, 0.35);
+  border-color: var(--purple-glow);
+  backdrop-filter: blur(2px);
+}
+
+.custom-cursor.is-magnetic .cursor-ring {
+  border-color: var(--cyan);
+  transform: scale(1.15);
+}
+
+/* Fullscreen Preloader (§7.0) */
+.preloader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #050507;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  color: #ffffff;
+}
+
+.preloader__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+[data-theme="light"] .preloader {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+[data-theme="light"] .preloader__bar-wrap {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.preloader__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.preloader__bar-wrap {
+  width: 220px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.preloader__bar {
+  width: 100%;
+  height: 100%;
+  background: var(--grad-accent);
+  transform-origin: left center;
+  transform: scaleX(0);
+  will-change: transform;
+}
+
+.preloader__counter {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+}
+
+.preloader__skip-btn {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-decoration: underline;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.preloader__skip-btn:hover {
+  color: var(--text-muted);
+}
+
+/* Official Institutional Logo System */
+.edc-logo--dark {
+  display: inline-block;
+}
+.edc-logo--light {
+  display: none;
+}
+
+[data-theme="light"] .edc-logo--dark {
+  display: none !important;
+}
+[data-theme="light"] .edc-logo--light {
+  display: inline-block !important;
+}
